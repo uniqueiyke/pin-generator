@@ -1,0 +1,150 @@
+.page-header {
+  height: 150px;
+  background-color: #051405;
+}
+
+.brand-logo-container {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.main-nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav ul {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.main-nav ul li a{
+  font-size: 1.6rem;
+}
+
+.main-nav .a {
+  display: none;
+}
+
+.sidenav li.page-header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.sidenav li.page-header .brand-logo-container{
+  font-size: 3rem;
+}
+
+.minor-nav{
+  margin-right: 40px;
+  /* background-color: rgb(206, 255, 71); */
+}
+
+.minor-nav li{
+  padding-right: 30px;
+  /* background-color: rgb(206, 255, 71); */
+}
+
+.minor-nav-link {
+  color: wheat;
+  margin: 2px;
+  /* background-color: tomato; */
+  font-size: 0.8rem;
+}
+.btn-link-to-no-dest {
+  cursor: pointer;
+}
+
+.spacing-bottom {
+  margin-bottom: 50px;
+}
+
+.spacing-y {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.spacing-top {
+  margin-top: 50px;
+}
+
+.center-preloader {
+  margin-left: auto;
+  margin-right: auto;
+}
+.check-wrapper {
+  margin-bottom: 20px;
+  line-height: 35px;
+  height: 40px;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.check-wrapper-active {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.check-wrapper-disabled {
+  background-color: rgb(153, 152, 152);
+  cursor: not-allowed !important;
+}
+
+.check-wrapper span{
+  margin-bottom: 10px;
+}
+
+.cursor-disabled {
+  cursor: not-allowed !important;
+  color: antiquewhite !important;
+}
+.dropdown-content {
+  top: -65px;
+}
+
+.background-cl {
+  padding-top: 20px;
+  margin: 30px 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #201f1f;
+}
+
+.hilighted {
+  background-color: #cccbcb;
+  font-size: .7em;
+  font-style: italic;
+  font-weight: bolder;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width : 650px){
+  .main-nav{
+    justify-content: left;
+  }
+  .main-nav ul {
+    display: none;
+  }
+
+  .main-nav .a {
+    display: inline;
+  }
+
+  /* not working yet */
+  .minor-nav{
+    /* margin-right: none; */
+    /* background-color: rgb(206, 255, 71); */
+  }
+  
+  .minor-nav li{
+    /* padding-right: none; */
+    /* background-color: rgb(206, 255, 71); */
+  }
+}
