@@ -51,7 +51,7 @@ function UserProfile({ user }) {
             }
             <p className="flow-text">
                 To fetch your generated card from another web app,
-                use the url <br /> <span className='hilighted'>http://localhost:4545/api/get/cards/?api_key=&lt;your api key&gt;</span>.<br/>
+                use the url <br /> <span className='hilighted'>https://fathomless-refuge-56411.herokuapp.com/api/get/cards/?api_key=&lt;your api key&gt;</span>.<br/>
                 Repleace <span className='hilighted'>&lt;your api key&gt;</span> with your api key
             </p>
             {<button className='btn' onClick={() => logout()}>Logout</button>}
