@@ -30,11 +30,13 @@ app.use('/api', require('./routes/api'));
 
 //serve static file if in production 
 if(process.env.NODE_ENV === 'production'){
+    const dirname = __dirname;
+    const rootPath = dirname.replace('server', '')
     //Set static folder
-    app.use(express.static('client/build'));
+    app.use(express.static(path.resolve(rootPath, 'client', 'build')));
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'server', 'client', 'build', 'index.html'))
+        res.sendFile(path.resolve(rootPath, 'client', 'build', 'index.html'))
     });
 }
 

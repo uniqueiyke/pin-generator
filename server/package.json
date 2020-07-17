@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "startD": "nodemon ./bin/www",
     "startServer": "nodemon ./bin/www"
   },
   "author": "Ikechukwu Ajike",
