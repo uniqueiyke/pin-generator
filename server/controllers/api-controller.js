@@ -39,7 +39,7 @@ exports.create_cards = async function (req, res) {
     let cardDoc = [];
     const {pin_length, serial_num_prefix, serial_num_length, num_of_cards} = req.body;
     try {
-        const cards = await createCards(pin_length, serial_num_length, serial_num_prefix,  num_of_cards)
+        const cards = await createCards(pin_length, serial_num_length, serial_num_prefix,  num_of_cards);
         for(let card of cards){
             const newCard = new CardModel({
                 card_pin: card.pin,

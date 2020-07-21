@@ -6,7 +6,7 @@ import { logoutUser } from '../../redux/actions/user-action';
 import useLogout from '../../hooks/useLogout';
 
 
-export default function MinorNav({className}) {
+export default function MinorNav({className, sideNav}) {
     const { isAuthenticated } = useSelector(state => state.user);
     const logout = useLogout(logoutUser, '/')
     return (
@@ -14,13 +14,13 @@ export default function MinorNav({className}) {
         {
             isAuthenticated ? 
             <React.Fragment> 
-                <li><Link to='/user/profile' className={`${className && className}  minor-nav-link`}>Profile</Link></li>
-                <li><Link to='' className={`${className && className}  minor-nav-link`} onClick={logout}>Logout</Link></li>
+                <li><Link to='/user/profile' className={`${className && className}  minor-nav-link`}>{sideNav && <i className="material-icons green-text text-darken-4">person</i>}Profile</Link></li>
+                <li><Link to='' className={`${className && className}  minor-nav-link`} onClick={logout}>{sideNav && <i className="material-icons green-text text-darken-4"></i>}Logout</Link></li>
             </React.Fragment>
             : 
             <React.Fragment>
-                <li><Link to='/users/register' className={`${className && className}  minor-nav-link`}>Register</Link></li>
-                <li><Link to='/users/login' className={`${className && className}  minor-nav-link`}>Login</Link></li>
+                <li><Link to='/users/register' className={`${className && className}  minor-nav-link`}>{sideNav && <i className="material-icons green-text text-darken-4"></i>}Register</Link></li>
+                <li><Link to='/users/login' className={`${className && className}  minor-nav-link`}>{sideNav && <i className="material-icons green-text text-darken-4"></i>}Login</Link></li>
             </React.Fragment>
         }
         </ul>

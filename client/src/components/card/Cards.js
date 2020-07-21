@@ -1,11 +1,10 @@
 import React, {useReducer} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ScratchCard from './ScratchCard';
 import { fetchScratchCard, updatePritedScratchCard } from '../../redux/actions/scratch-card-action';
 import Preloader from '../Preloader';
 import Errors from '../Errors';
-import CardModal from './CardModal';
 import CardPage from './CardPage';
 import { isEmptyArray, printCards } from '../../libs/functions';
 import BrandModal from './BrandModal';
@@ -73,7 +72,7 @@ export default function Cards() {
     
     return (
         <div>
-            <CardModal />
+            <Link className='btn' to='/users/create-cards' >Create Cards</Link>
             <button className='btn' onClick={() => dispatch(fetchScratchCard())}>{ isEmptyArray(cardList) ? 'Fetch Cards' : 'Refresh'}</button>
             {cards.loading && <Preloader /> }
             {cards.error &&  <Errors errors={cards.error} /> }

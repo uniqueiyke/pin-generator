@@ -76,6 +76,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .check-wrapper {
   margin-bottom: 20px;
   line-height: 35px;
@@ -135,16 +136,5 @@
 
   .main-nav .a {
     display: inline;
-  }
-
-  /* not working yet */
-  .minor-nav{
-    /* margin-right: none; */
-    /* background-color: rgb(206, 255, 71); */
-  }
-  
-  .minor-nav li{
-    /* padding-right: none; */
-    /* background-color: rgb(206, 255, 71); */
   }
 }

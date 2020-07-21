@@ -11,9 +11,9 @@ export default function Sidenav() {
             <li className="page-header sidenav-close">
                 <BrandLogo />
             </li>
-            <NavLinks className="sidenav-close"/>
+            <NavLinks sideNav className="sidenav-close"/>
             <li><div className="divider"></div></li>
-            <MinorNav className="sidenav-close"/>
+            <MinorNav sideNav className="sidenav-close"/>
         </ul>
     )
 }

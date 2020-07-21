@@ -7,6 +7,9 @@ import useLogout from '../hooks/useLogout';
 
 import img1 from '../images/Scratch-Card.jpg';
 import img2 from '../images/scratchcard.jpg';
+import img5 from '../images/edc-front.jpg';
+import img6 from '../images/edc-back.jpg';
+import img7 from '../images/airtel.jpg';
 import img3 from '../images/scratchcard1.jpg';
 import img4 from '../images/scratchcard2.jpg';
 import PageImage from './PageImage';
@@ -25,9 +28,24 @@ export default function Home() {
             <PageImage src={img1} alt='sample card image1' caption='Sample'>
                 <p>Can be used for any type of buisness</p>
             </PageImage>
-            <PageImage src={img2} alt='sample card image2' caption='Sample' />
-            <PageImage src={img3} alt='sample card imag3' />
-            <PageImage src={img4} alt='sample card image4' />
+            <PageImage src={img5} alt='sample card image2' caption='Sample' >
+                <p>Easy to use follow the guides</p>
+            </PageImage>
+            <PageImage src={img6} alt='sample card image2' caption='Sample'>
+                <p>Grow your buisness today</p>
+            </PageImage>
+            <PageImage src={img7} alt='sample card image2' caption='Sample'>
+                <p>Get pin numbers for your buisness</p>
+            </PageImage>
+            <PageImage src={img2} alt='sample card image2' caption='Sample'>
+                <p>Can be used for any type of buisness</p>
+            </PageImage>
+            <PageImage src={img3} alt='sample card imag3'>
+                <p>Can be used for any type of buisness</p>
+            </PageImage>
+            <PageImage src={img4} alt='sample card image4'>
+                <p>Can be used for any type of buisness</p>
+            </PageImage>
 
         </div>
         {
@@ -38,7 +56,6 @@ export default function Home() {
                 </div>
             : 
             <div>
-                <h3>Welcome</h3>
                 <Link to='/users/register' className='btn'>Register</Link>
                 <Link to='/users/login' className='btn green darken-2'>Login</Link>
             </div>

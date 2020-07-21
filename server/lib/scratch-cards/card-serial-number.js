@@ -6,6 +6,9 @@ class SerialNumber{
      * @param {number} numOfDigits 
      */
     constructor(numOfDigits, prefixCharacters = ''){
+        if(numOfDigits < prefixCharacters.toString().length){
+            throw Error(`prefixCharacters(${prefixCharacters}) length is greater than the required number (${numOfDigits}) of serial number digits`)
+        }
         this.prefixCharacters = prefixCharacters.toUpperCase() || this.generatePrefix();
         this.digitDivisions = this.breakDigits(numOfDigits);
         this.numOfDigits = this.digitDivisions[0] - 4 - this.prefixCharacters.length;
@@ -41,7 +44,6 @@ class SerialNumber{
             return [part1, part2, part3, part4];
         }
         return [numOfDigits];
-
     }
 
     randomNumber() {

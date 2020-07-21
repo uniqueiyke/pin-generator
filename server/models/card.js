@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
 
 const CardSchema = new Schema({
-    card_ser_num: {type: String, require: true, minlength: 12, uppercase: true , unique: true},
+    card_ser_num: {type: String, require: true, minlength: 5, uppercase: true , unique: true},
     card_pin: {type: String, require: true, unique: true},
     used: {type: Boolean, default: false},
     max_usage: {type: Number, default: 5},

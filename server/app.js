@@ -7,8 +7,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-//import and create the mongoDB connection
-// const mongoURI = process.env.mongoURI;
+// import and create the mongoDB connection
+const mongoURI = process.env.mongoURI;
 mongoose.connect(process.env.DB_URL, {  
     useNewUrlParser: true, 
     useUnifiedTopology: true,
@@ -16,6 +16,12 @@ mongoose.connect(process.env.DB_URL, {
 })
 .then(()=> console.log('mongo conneted'))
 .catch(error => console.log('mongo connection error', error));
+
+// mongoose.connect('mongodb://localhost:27017/scratch_card', {  
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true,
+//     useCreateIndex: true 
+// })
 
 const app = express();
 

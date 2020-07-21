@@ -9,6 +9,7 @@ import UserProfile from './users/UserProfile';
 import UserLoginForm from './users/UserLoginForm';
 import UserRegForm from './users/UserRegForm';
 import AuthRoute from './AuthRoute';
+import CreateCards from './card/CreateCards';
 
 export default function Router() {
     return (
@@ -25,6 +26,9 @@ export default function Router() {
                 </Route>
                 <AuthRoute exact path="/users/scratch-cards/:id?">
                     <Cards />
+                </AuthRoute>
+                <AuthRoute exact path="/users/create-cards">
+                    <CreateCards />
                 </AuthRoute>
                 <Route exact path="/users/login">
                 <UserLoginForm />
