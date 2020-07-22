@@ -6,10 +6,10 @@ import { createScratchCard } from '../../redux/actions/scratch-card-action';
 export default function CreateCards() {
 
     const initialState = {
-        pin_length: 12,
-        serial_num_length: 15,
+        pin_length: '',
+        serial_num_length: '',
         serial_num_prefix: '',
-        num_of_cards: '50'
+        num_of_cards: ''
     }
 
     const history = useHistory()
