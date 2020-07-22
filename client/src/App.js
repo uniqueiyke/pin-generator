@@ -16,7 +16,7 @@ function App() {
         <Navbar />
       </Header>
       <Router />
-      <Footer>Footer</Footer>
+      <Footer>&copy;2020</Footer>
       </div>
   );
 }

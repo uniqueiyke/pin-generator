@@ -41,18 +41,15 @@
 
 .minor-nav{
   margin-right: 40px;
-  /* background-color: rgb(206, 255, 71); */
 }
 
 .minor-nav li{
   padding-right: 30px;
-  /* background-color: rgb(206, 255, 71); */
 }
 
 .minor-nav-link {
   color: wheat;
   margin: 2px;
-  /* background-color: tomato; */
   font-size: 0.8rem;
 }
 .btn-link-to-no-dest {
@@ -64,8 +61,7 @@
 }
 
 .spacing-y {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .spacing-top {
