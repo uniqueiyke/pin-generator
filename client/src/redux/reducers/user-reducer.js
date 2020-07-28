@@ -63,10 +63,7 @@ export default (state = initialState(), action) => {
                 user: null,
                 isFetchingData: false,
                 isAuthenticated: false,
-                error: {
-                    message: action.payload.message,
-                    status: action.payload.status
-                }
+                error: action.payload
             }
 
             case USER_LOGGED_OUT:

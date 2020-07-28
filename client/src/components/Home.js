@@ -18,13 +18,21 @@ export default function Home() {
     const { isAuthenticated } = useSelector(state => state.user);
     const logout = useLogout(logoutUser, '/')
     return (
-        <div className='background-cl white-text'> 
+        <div> 
         <div>
-            <h4>
+            <h5>
                 Pin Generator is a website that allows users to 
                 generate pin codes and serial numbers they can use for their
                 buisness
-            </h4>
+            </h5>
+            {
+                !isAuthenticated &&
+                (<p className='flow-text'>
+                    To generate pins and serial numbers for your buisness
+                    you have to <Link to='/users/register'>sign up</Link> for free to our website 
+                    or <Link to='/users/login'>login</Link> if you already have an account.
+                </p>)
+            }
             <PageImage src={img1} alt='sample card image1' caption='Sample'>
                 <p>Can be used for any type of buisness</p>
             </PageImage>
@@ -52,12 +60,12 @@ export default function Home() {
             isAuthenticated ? 
             <div> 
                 <Link to='/user/profile' className='btn' >Profile</Link>
-                <Link to='' className='btn' onClick={logout}>Logout</Link>
+                <Link to='' className='btn green darken-2 right' onClick={logout}>Logout</Link>
                 </div>
             : 
             <div>
-                <Link to='/users/register' className='btn'>Register</Link>
-                <Link to='/users/login' className='btn green darken-2'>Login</Link>
+                <Link to='/users/register' className='btn'>Sign up</Link>
+                <Link to='/users/login' className='btn green darken-2 right'>Login</Link>
             </div>
         }
         </div>

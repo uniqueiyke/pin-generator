@@ -24,7 +24,7 @@ const ScratchCard = ({ card, dispatch }) => {
 
     const cDetails = (
         <Fragment>
-            <li className="collection-item teal darken-1"><p><em>Created Date:</em> <strong >{card.created_date}</strong></p></li>
+            <li className="collection-item teal darken-1"><p><em>Created Date:</em> <strong >{new Date(card.created_date).toDateString()}</strong></p></li>
             <li className="collection-item teal darken-1"><p><em>Allowable Number Of Usage:</em> <strong>{card.max_usage}</strong></p></li>
             <li className="collection-item teal darken-1"><p><em>Number Of Times Used:</em> <strong >{card.usage_count}</strong></p></li>
             <li className="collection-item teal darken-1"><p><em>Still Useabale:</em> <strong >{card.used_up ? 'No' : 'Yes'}</strong></p></li>

@@ -11,7 +11,7 @@ export default function UserLoginForm() {
     }
     const dispatch = useDispatch();
     const [userState, setUserState] = useState(initialState);
-    const user = useSelector(state => state.user.user);
+    const {user, error} = useSelector(state => state.user);
     
     const onChange = e => {
         setUserState({
@@ -30,7 +30,7 @@ export default function UserLoginForm() {
         <>
             {user && <Redirect to='/user/profile' />}
             <form method='POST' onSubmit={onSubmit} className="col s12">
-
+            {error && error.message && <p className='red-text'>{error.message}</p>}
                 <div className="input-field col s12">
                     <input id="username" type="text"
                         className="validate" name="username"

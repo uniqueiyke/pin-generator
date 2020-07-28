@@ -6,6 +6,7 @@ import useLogout from '../../hooks/useLogout';
 import { Link } from 'react-router-dom';
 import checkAuth from '../CheckAuth';
 import Errors from '../Contact';
+import CopyTextInput from '../CopyTextInput';
 
 function UserProfile({ user }) {
     const logout = useLogout(logoutUser, '/')
@@ -28,7 +29,7 @@ function UserProfile({ user }) {
                 <li key='api_key' className="collection-item white darken-2">
                     <p>
                         <em className=" orange-text ">Api key: </em>
-                        <strong >{user.user.api_key}      </strong>
+                        <CopyTextInput>{user.user.api_key} </CopyTextInput>
                         <button className='btn blue darken-4' onClick={() => dispatch(refreshApiKey())}>Refresh Api Key</button>
                     </p>
                 </li>

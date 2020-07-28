@@ -12,6 +12,7 @@ import {
 
 import axios from 'axios';
 import tokenConfig from './token-config';
+import errorParser from '../error-parser';
 
 const userCreated = data => ({
     type: USER_CREATED,
@@ -70,9 +71,7 @@ export const registerUser = data => async dispatch => {
         dispatch(userCreated(response.data));
 
     } catch (error) {
-        // let errorObject = JSON.parse(JSON.stringify(error));
-        dispatch(userCreationFailed(error));
-        console.log(error);
+        dispatch(userCreationFailed(errorParser(error)));
     }
 }
 
@@ -91,8 +90,7 @@ export const loginUser = data => async dispatch => {
         dispatch(userLoginSucceeded(response.data));
 
     } catch (error) {
-        dispatch(userLoginFailed(error));
-        console.log(error);
+        dispatch(userLoginFailed(errorParser(error)));
     }
 }
 
@@ -106,9 +104,7 @@ export const fetchUser = () => async dispatch => {
         });
         dispatch(userFetchSuccess(response.data));
     } catch (error) {
-        dispatch(userFetchFailed(error));
-        let errorObject = JSON.parse(JSON.stringify(error));
-        console.log(errorObject);
+        dispatch(userFetchFailed(errorParser(error)));
     }
 }
 
@@ -121,7 +117,6 @@ export const refreshApiKey = () => async dispatch => {
         });
         dispatch(apiKeyRefreshed(response.data));
     } catch (error) {
-        let errorObject = JSON.parse(JSON.stringify(error));
-        console.log(errorObject);
+        console.log(errorParser(error));
     }
 }

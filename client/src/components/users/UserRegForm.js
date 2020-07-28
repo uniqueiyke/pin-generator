@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import { registerUser } from '../../redux/actions/user-action';
+import validateInput from '../../libs/validateInput';
+import ValidateInput from '../ValidateInput';
 
 export default function UserRegForm() {
     const initialState = {
@@ -14,7 +16,12 @@ export default function UserRegForm() {
 
     const dispatch = useDispatch();
     const [userState, setUserState] = useState(initialState);
-    const user = useSelector(state => state.user.user);
+    const {user, error} = useSelector(state => state.user);
+    const [formErr, setFormErr] = useState(null);
+    const ref = useRef()
+    if(error){
+       ref.current = error.message; 
+    }
     
     const onChange = e => {
         setUserState({
@@ -24,9 +31,15 @@ export default function UserRegForm() {
     }
 
     const onSubmit = e => {
+        e.preventDefault();
+        setFormErr(null);
+        const valErr = validateInput(userState);
+        if(JSON.stringify(valErr) !== '{}'){
+            setFormErr(valErr);
+            return;
+        }
         dispatch(registerUser(userState));
         setUserState({ ...initialState });
-        e.preventDefault();
     }
 
     return (
@@ -41,6 +54,7 @@ export default function UserRegForm() {
                         value={userState.email}
                     />
                     <label htmlFor="email">Email</label>
+                    {(formErr || ref.current) && <ValidateInput clientErr={(formErr && formErr.email) ? formErr.email : ''} serverErr={(ref.current && ref.current.email) ? ref.current.email : ''}/> }
                 </div>
 
                 <div className="input-field col s12">
@@ -50,7 +64,8 @@ export default function UserRegForm() {
                         value={userState.username}
                     />
                     <label htmlFor="username">Username</label>
-                </div>
+                    {(formErr || ref.current) && <ValidateInput clientErr={(formErr && formErr.username) ? formErr.username : ''} serverErr={(ref.current && ref.current.username) ? ref.current.username : ''}/> }
+                    </div>
 
                 <div className="input-field col s12">
                     <input id="password" type="password"
@@ -59,7 +74,8 @@ export default function UserRegForm() {
                         value={userState.password}
                     />
                     <label htmlFor="password">Password</label>
-                </div>
+                    {(formErr || ref.current) && <ValidateInput clientErr={(formErr && formErr.password) ? formErr.password : ''} serverErr={(ref.current && ref.current.password) ? ref.current.password : ''}/> }
+                    </div>
 
                 <div className="input-field col s12">
                     <input id="rpassword" type="password"
@@ -72,6 +88,7 @@ export default function UserRegForm() {
                     data-error={`${userState.rpassword !== userState.password && 'password did not match'}`}
                     data-success= {`${userState.rpassword === userState.password && 'matched'}`}
                     ></span>
+                    {(formErr || ref.current) && <ValidateInput clientErr={(formErr && formErr.misMatch) ? formErr.misMatch : ''} serverErr={(ref.current && ref.current.misMatch) ? ref.current.misMatch : ''}/> }
                 </div>
                 <button className="btn waves-effect waves-light" type="submit" name="action">Submit
                       <i className="material-icons right">send</i>

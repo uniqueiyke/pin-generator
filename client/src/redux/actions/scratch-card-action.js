@@ -12,6 +12,7 @@ import {
 
 import axios from 'axios';
 import tokenConfig from './token-config';
+import errorParser from '../error-parser';
 
 export const scratchCardSuccess = data => ({
     type: SCRATCH_CARD_FETCH_SUCCEEDED,
@@ -66,7 +67,7 @@ export const fetchScratchCard = () =>   async dispatch => {
         })
         dispatch(scratchCardSuccess(res.data));
     } catch (error) {
-        dispatch(scratchCardFetchFailed(error));
+        dispatch(scratchCardFetchFailed(errorParser(error)));
     }
 }
 
@@ -81,8 +82,7 @@ export const updatePritedScratchCard = data => async dispatch => {
         
         dispatch(printedCardsUpdated(res.data));
     } catch (error) {
-        // dispatch(scratchCardCreateFailed(error));
-        console.log(error);
+        console.log(errorParser(error));
     }
 }
 
@@ -97,8 +97,7 @@ export const createScratchCard = data => async dispatch => {
         });
         dispatch(scratchCardCreated(res.data));
     } catch (error) {
-        dispatch(scratchCardCreateFailed(error));
-        console.log(error);
+        dispatch(scratchCardCreateFailed(errorParser(error)));
     }
 }
 
@@ -115,8 +114,7 @@ export const deleteScratchCard = id => async dispatch => {
             console.log("chouldn't delete");
         }
     } catch (error) {
-        console.log(error);
-        dispatch(deleteFailed(error));
+        dispatch(deleteFailed(errorParser(error)));
     }
 }
 

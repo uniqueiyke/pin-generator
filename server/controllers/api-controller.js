@@ -1,4 +1,4 @@
-const createCards = require('../lib/scratch-cards/create-cards');
+const createCards = require('serial-pin-generator');
 const CardModel = require('../models/card');
 const User = require('../models/user');
 
@@ -39,7 +39,12 @@ exports.create_cards = async function (req, res) {
     let cardDoc = [];
     const {pin_length, serial_num_prefix, serial_num_length, num_of_cards} = req.body;
     try {
-        const cards = await createCards(pin_length, serial_num_length, serial_num_prefix,  num_of_cards);
+        const cards = await createCards({
+            pinLength: parseInt(pin_length),
+            serialNumLength: parseInt(serial_num_length),
+            prefixCharacters: serial_num_prefix,
+            numberRequired: parseInt(num_of_cards)
+        });
         for(let card of cards){
             const newCard = new CardModel({
                 card_pin: card.pin,
@@ -51,12 +56,8 @@ exports.create_cards = async function (req, res) {
             cardDoc.push(cNCard);
         }
         res.json(cardDoc);
-
-
     } catch (error) {
-        res.status(401).json(error);
-        console.log(error);
-        
+        res.status(401).json({message: error.message});
     }
 }
 

@@ -41,6 +41,7 @@ export default function useInitMatComponent(componentName, querySelector, option
     const componentRef = useRef();
     useEffect(() => {
         componentRef.current = initMatComponent(componentName, querySelector, options);
+        // eslint-disable-next-line
     }, effectDependecies);
     return componentRef.current;
 }

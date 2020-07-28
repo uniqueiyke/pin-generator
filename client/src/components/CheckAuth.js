@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUser } from '../redux/actions/user-action';
 
-// import { Link } from 'react-router-dom';
-
 const checkAuth = (WrappedComponenet) => {
     return function CheckAuth(props) {
         const user = useSelector(state => state.user);
@@ -13,6 +11,7 @@ const checkAuth = (WrappedComponenet) => {
             if(user.isAuthenticated && !user.user ){
                 dispatch(fetchUser());
             }
+            // eslint-disable-next-line
         }, []);
         return <WrappedComponenet user={user} { ...props} />
     }
