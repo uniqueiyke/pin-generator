@@ -9,15 +9,7 @@ const mongoose = require('mongoose');
 
 // import and create the mongoDB connection
 const mongoURI = process.env.mongoURI;
-// mongoose.connect(process.env.DB_URL, {  
-//     useNewUrlParser: true, 
-//     useUnifiedTopology: true,
-//     useCreateIndex: true 
-// })
-// .then(()=> console.log('mongo conneted'))
-// .catch(error => console.log('mongo connection error', error));
-
-mongoose.connect('mongodb://localhost:27017/scratch_card', {  
+mongoose.connect(process.env.DB_URL, {  
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true 
