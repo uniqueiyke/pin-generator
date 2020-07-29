@@ -17,14 +17,6 @@ mongoose.connect(process.env.DB_URL, {
 .then(()=> console.log('mongo conneted'))
 .catch(error => console.log('mongo connection error', error));
 
-// mongoose.connect('mongodb://localhost:27017/scratch_card', {  
-//     useNewUrlParser: true, 
-//     useUnifiedTopology: true,
-//     useCreateIndex: true 
-// })
-// .then(()=> console.log('mongo conneted'))
-// .catch(error => console.log('mongo connection error', error));
-
 const app = express();
 
 app.use(logger('dev'));
