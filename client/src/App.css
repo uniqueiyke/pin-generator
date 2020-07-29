@@ -20,6 +20,13 @@
   justify-content: center;
 }
 
+.copy-btn{
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+}
+
 .main-nav ul li a{
   font-size: 1.6rem;
 }

@@ -29,7 +29,7 @@ function UserProfile({ user }) {
                 <li key='api_key' className="collection-item white darken-2">
                     <p>
                         <em className=" orange-text ">Api key: </em>
-                        <CopyTextInput>{user.user.api_key} </CopyTextInput>
+                        <CopyTextInput value={user.user.api_key} /> 
                         <button className='btn blue darken-4' onClick={() => dispatch(refreshApiKey())}>Refresh Api Key</button>
                     </p>
                 </li>

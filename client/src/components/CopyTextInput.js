@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-export default function CopyTextInput({ inputComponent, children }) {
+export default function CopyTextInput({ value }) {
     const inputRef = useRef()
     function copyText() {
         /* Select the text field */
@@ -12,20 +12,15 @@ export default function CopyTextInput({ inputComponent, children }) {
     }
     return (
         <span className='copy-text'>
-            {
-                inputComponent === 'textarea' ? (
-                    <textarea className="input" ref={inputRef} defaultValue={children} readOnly></textarea>
-                ) : (
-                        <input
-                            className="input"
-                            type="text"
-                            defaultValue={children}
-                            ref={inputRef} 
-                            readOnly
-                            />
-                    )
-            }
-            <a onClick={copyText} href="#!" className="secondary-content"><i className="material-icons right">content_copy</i></a>
+            <input
+                className="input"
+                type="text"
+                value={value}
+                ref={inputRef} 
+                readOnly
+            />
+                    
+            <button onClick={copyText} className="copy-btn"><i className="material-icons right">content_copy</i></button>
         </span>
     )
 }
